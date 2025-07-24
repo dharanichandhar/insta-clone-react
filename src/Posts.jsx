@@ -7,9 +7,8 @@ const [posts , setPosts] = useState([]);
 
 useEffect(()=>{
     axios
-    .get()
-    .then((data)=>data.json())
-    .then((data=>setPosts(data)))
+    .get("https://my-json-server.typicode.com/dharanichandhar/insta-api/posts")
+    .then((data=>setPosts(data.data)))
     .catch(err=> console.log(err))
 },[]);
 

@@ -11,12 +11,12 @@ function Suggestion() {
   useEffect(()=>{
     axios
     .get('https://my-json-server.typicode.com/dharanichandhar/insta-api/profile')
-    .then(data => setStories(data))
+    .then(data => setStories(data.data))
     .catch(err => console.log(err))
 
    axios
     .get('https://my-json-server.typicode.com/dharanichandhar/insta-api/suggestion')
-    .then ( data => setSuggestion(data))
+    .then ( data => setSuggestion(data.data))
     .catch(err => console.log(err))
 
   },[]);

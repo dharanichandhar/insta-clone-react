@@ -11,8 +11,8 @@ let tot = 0;
   
 useEffect(()=>{
   axios
-  .get('https://my-json-server.typicode.com/dharanichandhar/insta-api/posts')
-  .then(data => setStories(data))
+  .get('https://my-json-server.typicode.com/dharanichandhar/insta-api/story')
+  .then(data => setStories(data.data))
   .catch(err => console.log(err))
 },[]);
 
