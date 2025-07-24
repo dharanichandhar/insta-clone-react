@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState , useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 
@@ -9,8 +10,8 @@ const navigate = useNavigate()
 let tot = 0;
   
 useEffect(()=>{
-  fetch('http://localhost:3000/story')
-  .then(data => data.json())
+  axios
+  .get('https://my-json-server.typicode.com/dharanichandhar/insta-api/posts')
   .then(data => setStories(data))
   .catch(err => console.log(err))
 },[]);

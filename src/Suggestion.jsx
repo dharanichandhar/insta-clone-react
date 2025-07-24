@@ -9,21 +9,20 @@ function Suggestion() {
   // const [Following, setFollowing] = useState(false);
 
   useEffect(()=>{
-    fetch('http://localhost:3000/profile')
-    .then (data => data.json())
-    .then ( data => setProfile(data))
+    axios
+    .get('https://my-json-server.typicode.com/dharanichandhar/insta-api/profile')
+    .then(data => setStories(data))
     .catch(err => console.log(err))
 
-   
-    fetch('http://localhost:3000/suggestion')
-    .then (data => data.json())
+   axios
+    .get('https://my-json-server.typicode.com/dharanichandhar/insta-api/suggestion')
     .then ( data => setSuggestion(data))
     .catch(err => console.log(err))
 
   },[]);
 
    const handleFollow = async(id , username) => {
-    axios.post('http://localhost:3000/followers',{ "id" : id, "username" : username})
+    axios.post('https://my-json-server.typicode.com/dharanichandhar/insta-api/followers',{ "id" : id, "username" : username})
     .then(alert("followed"))
     .catch(err => console.log(err))
    }

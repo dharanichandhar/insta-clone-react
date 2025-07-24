@@ -10,11 +10,11 @@ function Profile() {
       const [unfollowed , setUnfollowed] =useState(0);
 
     useEffect(()=>{
-        axios.get('http://localhost:3000/profile')
+        axios.get('https://my-json-server.typicode.com/dharanichandhar/insta-api/profile')
         .then(data => setProfile(data.data))
         .catch(err=> console.log(err))
 
-        axios.get('http://localhost:3000/followers')
+        axios.get('https://my-json-server.typicode.com/dharanichandhar/insta-api/followers')
         .then(data => setFollowers(data.data))
         .catch(err=> console.log(err))
     },[unfollowed])
@@ -27,13 +27,13 @@ function Profile() {
     }
 
     const handleUpdate = async ()=>{
-        axios.put('http://localhost:3000/profile', profile)
+        axios.put('https://my-json-server.typicode.com/dharanichandhar/insta-api/profile', profile)
         .then(console.log("Updated"))
         .catch(err => console.log(err))
     }
 
       const handleUnFollow = async(id)=>{
-    axios.delete(`http://localhost:3000/followers/${id}`)
+    axios.delete(`https://my-json-server.typicode.com/dharanichandhar/insta-api/followers/${id}`)
     .then(alert("unfollwed"))
     .then(setUnfollowed(!unfollowed))
     .catch(err => console.log(err))

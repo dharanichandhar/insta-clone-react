@@ -1,3 +1,4 @@
+import axios from 'axios';
 import  { useEffect, useState } from 'react'
 
 function Posts() {
@@ -5,7 +6,8 @@ function Posts() {
 const [posts , setPosts] = useState([]);
 
 useEffect(()=>{
-    fetch("http://localhost:3000/posts")
+    axios
+    .get()
     .then((data)=>data.json())
     .then((data=>setPosts(data)))
     .catch(err=> console.log(err))
